@@ -1,0 +1,5 @@
+server/.idea
+server/ECommerce.API/bin
+server/ECommerce.Core/bin
+server/ECommerce.Services/bin
+server/ECommerce.Data/bin
