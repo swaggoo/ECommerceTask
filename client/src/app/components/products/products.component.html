@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="vh-75 row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 mb-4">
+        <ng-container
+            *ngFor="let product of products | paginate: { itemsPerPage: pageSize, currentPage: pageNumber, totalItems: pagination?.totalCount}">
+            <app-product-item [product]="product"></app-product-item>
+        </ng-container>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <pagination-controls (pageChange)="pageChanged($event)">
+            </pagination-controls>
+        </div>
+    </div>
+    <div class="row justify-content-end">
+        <div class="col-lg-12 text-end">
+            <button class="btn btn-primary position-relative" [routerLink]="['/order']">
+                Make an order
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    {{totalQuantity}}
+                </span>
+            </button>
+        </div>
+    </div>
+</div>

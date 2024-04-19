@@ -1,0 +1,26 @@
+<div class="container vh-75 d-flex  justify-content-center align-items-center">
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <h1 class="text-left">Add Product</h1>
+    <div>
+      <div class="form-group mb-3">
+        <label>Product Name</label>
+        <input type="text" class="form-control" formControlName="name">
+        <label class="text-danger" *ngIf="productForm.get('name')?.errors && productForm.get('name')?.touched">Product Name is required</label>
+      </div>
+      <div class="form-group mb-3">
+        <label>Price</label>
+        <input type="number" class="form-control" formControlName="price">
+        <label class="text-danger" *ngIf="productForm.get('price')?.errors && productForm.get('price')?.touched">Price is required</label>
+      </div>
+      <div class="form-group mb-3">
+        <label for="code">Product Code</label>
+        <input type="text" class="form-control" formControlName="code">
+        <label class="text-danger" *ngIf="productForm.get('code')?.errors && productForm.get('code')?.touched">Product Code is required</label>
+      </div>
+      <div class="mb-3">
+        <input class="form-control" type="file" formControlName="image" (change)="onFileChange($event)" [accept]="'.png,.jpg,.jpeg'">
+      </div>
+      <button type="submit" class="btn btn-primary">Add Product</button>
+    </div>
+  </form>
+</div>

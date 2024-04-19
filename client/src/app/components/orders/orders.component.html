@@ -1,0 +1,33 @@
+<div class="container">
+    <h1>Orders</h1>
+    <div class="vh-75">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Order id</th>
+                    <th>Date</th>
+                    <th>Customer Full Name</th>
+                    <th>Customer Phone</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr
+                    *ngFor="let order of orders | paginate: { itemsPerPage: pageSize, currentPage: pageNumber, totalItems: pagination?.totalCount}">
+                    <td>{{ order.orderId }}</td>
+                    <td>{{ order.date }}</td>
+                    <td>{{ order.customerFullname }}</td>
+                    <td>{{ order.customerPhone }}</td>
+                    <td>{{ order.status }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-4">
+            <pagination-controls (pageChange)="pageChanged($event)">
+            </pagination-controls>
+        </div>
+    </div>
+</div>

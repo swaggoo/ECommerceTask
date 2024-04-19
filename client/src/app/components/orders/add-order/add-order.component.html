@@ -1,0 +1,22 @@
+<div class="container vh-75 d-flex justify-content-center align-items-center">
+    <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+        <h1 class="text-left">Create Order</h1>
+        <div>
+            <div class="form-group mb-3">
+                <label>Customer Full Name</label>
+                <input type="text" class="form-control" formControlName="customerFullName">
+                <label class="text-danger"
+                    *ngIf="orderForm.get('customerFullName')?.errors && orderForm.get('customerFullName')?.touched">Customer
+                    Full Name is required</label>
+            </div>
+            <div class="form-group mb-3">
+                <label>Customer Phone</label>
+                <input type="text" class="form-control" formControlName="customerPhone">
+                <label class="text-danger"
+                    *ngIf="orderForm.get('customerPhone')?.errors && orderForm.get('customerPhone')?.touched">Customer
+                    Phone is required</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Create Order</button>
+        </div>
+    </form>
+</div>

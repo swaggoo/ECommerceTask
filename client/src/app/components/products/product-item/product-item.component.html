@@ -1,0 +1,16 @@
+<div class="card mb-3" *ngIf="product">
+    <h3 class="card-header">{{product.name}}</h3>
+    <img src="{{product.imagePath}}" alt="">
+    <div class="card-body display-flex">
+        <p class="card-text">${{product.price}}</p>
+        <div class="quantity-controls">
+            <button (click)="increaseQuantity()" class="btn"><span
+                    class="badge rounded-pill bg-primary">Add</span></button>
+
+            <span class="quantity">{{ quantity }}</span>
+            <button (click)="decreaseQuantity()" class="btn"><span
+                    class="badge rounded-pill bg-light">Delete</span></button>
+
+        </div>
+    </div>
+</div>
